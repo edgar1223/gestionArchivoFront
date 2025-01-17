@@ -1,0 +1,28 @@
+/* user-form.component.css */
+.user-form {
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 10px;
+  }
+  
+  button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Añadir separación entre las etiquetas y los campos de entrada */
+  nz-form-label {
+    margin-bottom: 8px; /* Añade espacio debajo de la etiqueta */
+  }
+  
+  /* Añadir margen entre el input y la etiqueta */
+  nz-form-control {
+    margin-bottom: 16px; /* Espacio entre los controles de formulario */
+  }
+  
+  /* Opcional: para hacer que los inputs tengan un poco más de espacio entre ellos */
+  nz-form-item {
+    margin-bottom: 20px; /* Añadir espacio entre los ítems de formulario */
+  }
+  

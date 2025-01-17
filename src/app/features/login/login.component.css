@@ -1,34 +1,92 @@
 .inner-box {
-  margin-left: 10%;
-  height: 100vh;
+    margin-left: 10%;
+    height: 100vh;
+  }
   
-}
-.login{
-   
+  .login {
     display: grid;
     justify-content: center;
     align-items: center;
     margin: auto;
-}
-.container {
-  width: 100vw;
-  height: 100vh;
-  background-color: aqua;
-}
-.gutter-row {
-  border-right: 2px solid #000; /* Agrega la línea divisoria */
-}
-
-.gutter-row:last-child {
-  border-right: none; /* Elimina la línea divisoria en la última columna */
-}
-.formulario {
+  }
+  
+  .container {
+    width: 100vw;
+    height: 100vh;
+    background-color: aqua;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px; /* Agregar algo de espacio para no estar pegado a los bordes */
+  }
+  
+  .gutter-row {
+    border-right: 2px solid #000;
+  }
+  
+  .gutter-row:last-child {
+    border-right: none;
+  }
+  
+  .formulario {
     display: flex;
     justify-content: center;
     align-items: center;
     margin: auto;
- width: 25vw;
-  background-color: #f0f0f0;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
+    width: 35vw;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    max-height: 80vh;
+    overflow-y: auto;
+  }
+  
+  nz-tabset {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  nz-tabset .ant-tabs-card {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Media Queries para pantallas pequeñas */
+  @media (max-width: 768px) {
+    .container {
+      flex-direction: column;
+      height: auto;
+      padding: 20px;
+    }
+  
+    .inner-box {
+      margin-left: 0;
+      width: 100%;
+    }
+  
+    .gutter-row {
+      border-right: none;
+      margin-bottom: 16px;
+    }
+  
+    .formulario {
+      width: 90vw; /* Hacer que el formulario ocupe más espacio en pantallas pequeñas */
+      margin: 0;
+      padding: 15px; /* Reducir el padding para pantallas pequeñas */
+    }
+  
+    nz-tabset {
+      width: 100%;
+      padding: 10px 0;
+    }
+  
+    nz-tabset .ant-tabs-card {
+      padding: 0 10px;
+    }
+  }
+  

@@ -13,7 +13,8 @@ import { NzCheckboxModule } from 'ng-zorro-antd/checkbox';
 import { NzFormModule } from 'ng-zorro-antd/form';
 import { NzInputModule } from 'ng-zorro-antd/input';
 import { BrowserModule } from '@angular/platform-browser';
-import { NzNotificationService } from 'ng-zorro-antd/notification';
+import { Router } from "@angular/router";
+import { NotificationService } from '../../../core/services/Notification/notification.service';
 @Component({
   selector: 'app-login-form',
   imports: [ReactiveFormsModule, NzButtonModule, NzFormModule, NzInputModule,NzButtonModule],
@@ -26,7 +27,8 @@ export class LoginFormComponent {
   constructor(
     private usersService: UsersService,
     private fb: FormBuilder,
-    private notification: NzNotificationService
+    public router: Router,
+    private notification:NotificationService
   ) {
     this.loginForm = this.fb.group({
       username: ['', [Validators.required, Validators.email]],
@@ -41,22 +43,17 @@ export class LoginFormComponent {
         next: (response) => {
           console.log('Login exitoso:', response);
           this.usersService.setToken(response.access);
+          this.router.navigateByUrl("/home");
         },
         error: (error) => {
           console.error('Error durante el login:', error);
         },
       });
     } else {
-      this.createNotification("error","Los datos son invalidos");
+      this.notification.createNotification("error","Los datos son invalidos");
 
     }
     
   }
-  createNotification(type: string, mensaje:string): void {
-    this.notification.create(
-      type,
-      'Notification Title',
-      mensaje
-    );
-  }
+  
 }

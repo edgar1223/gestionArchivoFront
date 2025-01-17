@@ -1,0 +1,47 @@
+<form [formGroup]="userForm" nz-form (ngSubmit)="onSubmit()">
+    <nz-form-item>
+      <nz-form-label [nzSpan]="8">Usuario</nz-form-label>
+      <nz-form-control [nzSpan]="16">
+        <input nz-input formControlName="username" placeholder="Ingresa el nombre de usuario" />
+      </nz-form-control>
+    </nz-form-item>
+  
+    <nz-form-item>
+      <nz-form-label [nzSpan]="8">Nombre</nz-form-label>
+      <nz-form-control [nzSpan]="16">
+        <input nz-input formControlName="first_name" placeholder="Ingresa el nombre" />
+      </nz-form-control>
+    </nz-form-item>
+  
+    <nz-form-item>
+      <nz-form-label [nzSpan]="8">Apellido</nz-form-label>
+      <nz-form-control [nzSpan]="16">
+        <input nz-input formControlName="last_name" placeholder="Ingresa el apellido" />
+      </nz-form-control>
+    </nz-form-item>
+  
+    <nz-form-item>
+      <nz-form-label [nzSpan]="8">Email</nz-form-label>
+      <nz-form-control [nzSpan]="16">
+        <input nz-input formControlName="email" type="email" placeholder="Ingresa el correo electrónico" />
+      </nz-form-control>
+    </nz-form-item>
+  
+    <nz-form-item>
+      <nz-form-label [nzSpan]="8">Contraseña</nz-form-label>
+      <nz-form-control [nzSpan]="16">
+        <input nz-input formControlName="password" type="password" placeholder="Ingresa la contraseña" />
+      </nz-form-control>
+    </nz-form-item>
+  
+  
+  
+    <nz-form-item>
+      <nz-form-control [nzOffset]="8" [nzSpan]="16">
+        <button nz-button nzType="primary" [nzShape]="'round'" [nzSize]="'large'">
+          <i nz-icon nzType="save"></i> Guardar
+        </button>
+      </nz-form-control>
+    </nz-form-item>
+  </form>
+  
