@@ -1,92 +1,112 @@
+/* Contenedor general */
+.contenedor {
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(135deg, #e8f7fc, #ffffff);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* Columnas internas */
+.gutter-row {
+  border-right: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 10px;
+}
+
+.gutter-row:last-child {
+  border-right: none;
+}
+
+/* Estilo de las cajas internas */
 .inner-box {
-    margin-left: 10%;
-    height: 100vh;
+  height: 100%;
+  margin-left: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(145deg, #ffffff, #f0f0f0);
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+
+.login {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+}
+
+/* Estilo del formulario */
+.formulario {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  width: 35vw;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  padding: 25px;
+  max-height: 80vh;
+  overflow-y: auto;
+  border: 1px solid #d9d9d9;
+}
+
+/* Tabs de Login y Registro */
+nz-tabset {
+  width: 100%;
+}
+
+nz-tabset .ant-tabs-card {
+  width: 100%;
+  border: none;
+  box-shadow: none;
+}
+
+nz-tab {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Divisor entre secciones */
+nz-divider {
+  border-top: 1px solid #d9d9d9;
+  margin: 20px 0;
+}
+
+/* Responsividad para pantallas pequeñas */
+@media (max-width: 768px) {
+  .contenedor {
+    flex-direction: column;
+    height: auto;
+    padding: 15px;
   }
-  
-  .login {
-    display: grid;
-    justify-content: center;
-    align-items: center;
-    margin: auto;
+
+  .inner-box {
+    margin-left: 0;
+    width: 100%;
   }
-  
-  .container {
-    width: 100vw;
-    height: 100vh;
-    background-color: aqua;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 10px; /* Agregar algo de espacio para no estar pegado a los bordes */
-  }
-  
+
   .gutter-row {
-    border-right: 2px solid #000;
-  }
-  
-  .gutter-row:last-child {
     border-right: none;
+    margin-bottom: 20px;
   }
-  
+
   .formulario {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: auto;
-    width: 35vw;
-    background-color: #f0f0f0;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    max-height: 80vh;
-    overflow-y: auto;
+    width: 90vw;
+    padding: 15px;
   }
-  
+
   nz-tabset {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    padding: 10px 0;
   }
-  
+
   nz-tabset .ant-tabs-card {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    padding: 0 10px;
   }
-  
-  /* Media Queries para pantallas pequeñas */
-  @media (max-width: 768px) {
-    .container {
-      flex-direction: column;
-      height: auto;
-      padding: 20px;
-    }
-  
-    .inner-box {
-      margin-left: 0;
-      width: 100%;
-    }
-  
-    .gutter-row {
-      border-right: none;
-      margin-bottom: 16px;
-    }
-  
-    .formulario {
-      width: 90vw; /* Hacer que el formulario ocupe más espacio en pantallas pequeñas */
-      margin: 0;
-      padding: 15px; /* Reducir el padding para pantallas pequeñas */
-    }
-  
-    nz-tabset {
-      width: 100%;
-      padding: 10px 0;
-    }
-  
-    nz-tabset .ant-tabs-card {
-      padding: 0 10px;
-    }
-  }
-  
+}

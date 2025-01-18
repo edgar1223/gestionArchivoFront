@@ -1,0 +1,62 @@
+<div *ngIf="lista" class="container-fluid">
+  <div class="row">
+    <h3>Lista de Documentos</h3>
+    
+    <nz-breadcrumb>
+      <button nz-button nzType="primary" nzShape="circle"  *ngIf="carpeta.length > 1" (click)="atras()">
+        <nz-icon nzType="arrow-left" nzTheme="outline" />
+      </button>
+      <nz-breadcrumb-item class="menuLista" *ngFor="let item of carpeta" (click)="navigateTo(item)">{{ item }}</nz-breadcrumb-item>
+    </nz-breadcrumb>
+    <!-- Sección principal -->
+    <div 
+      class="item-container d-flex flex-wrap gap-3 px-3 contenedor" 
+      [class.col-12]="!detalle" 
+      [class.col-lg-9]="detalle" 
+      [class.col-md-9]="detalle" 
+      [class.col-sm-12]="detalle">
+      <div 
+        *ngFor="let item of lista.carpetas" 
+        class="item d-flex flex-column align-items-center text-center p-2 bg-light border rounded carpeta" (click)="getCarpeta(item.nombre)">
+        <i nz-icon nzType="folder" nzTheme="outline" class="icon mb-2"></i>
+        <span class="item-name">{{ item.nombre }}</span>
+      </div>
+      <div 
+        *ngFor="let item of lista.archivos" 
+        class="item d-flex flex-column align-items-center text-center p-2 bg-light border rounded archivos" (click)="loadDetalle(item.nombre)">
+        <i nz-icon nzType="file" nzTheme="outline" class="icon mb-2"></i>
+        <span class="item-name">{{ item.nombre }} ({{ item.tipo }})</span>
+      </div>
+    </div>
+
+    <!-- Sección adicional (detalle) -->
+    <div 
+      *ngIf="detalle" 
+      class="detail-container px-3"
+      class="col-lg-3 col-md-3 col-sm-12">
+      <!-- Contenido del detalle -->
+      <div class="detail-card">
+        <button nz-button nzType="primary" nzDanger (click)="eliminarDetalle()">X</button>
+        <button nz-button nzType="primary"  (click)="descargarArchivo(detalle.nombre)"><nz-icon nzType="download" nzTheme="outline" /></button>
+
+        <h3 class="detail-title">Detalle del archivo</h3>
+        <div class="detail-item">
+          <span class="label">Nombre:</span>
+          <span class="value">{{ detalle.nombre }}</span>
+        </div>
+        <div class="detail-item">
+          <span class="label">Propietario:</span>
+          <span class="value">{{ detalle.Propietario }}</span>
+        </div>
+        <div class="detail-item">
+          <span class="label">Peso:</span>
+          <span class="value">{{ detalle.peso }} MB</span>
+        </div>
+        <div class="detail-item">
+          <span class="label">Ruta Completa:</span>
+          <span class="value">{{ detalle.ruta_completa }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

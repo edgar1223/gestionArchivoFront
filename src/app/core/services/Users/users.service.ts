@@ -4,6 +4,7 @@ import { CookieService } from "ngx-cookie-service";
 import { Observable } from 'rxjs';
 import { environment } from '../../../../environments/environment';
 import { Usuario } from '../../../models/usuario';
+import { AuthService } from '../auth/auth.service';
 
 
 @Injectable({
@@ -39,4 +40,5 @@ export class UsersService {
   getToken() {
     return this.cookies.get("token");
   }
+  
 }

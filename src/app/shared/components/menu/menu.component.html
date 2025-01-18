@@ -1,0 +1,35 @@
+<ul nz-menu nzMode="inline" class="menu" [nzInlineCollapsed]="isCollapsed">
+  <li
+    nz-menu-item
+    nz-tooltip
+    nzTooltipPlacement="right"
+    [nzTooltipTitle]="isCollapsed ? 'Inicio' : ''"
+    nzSelected
+    [routerLink]="['/home/documentos']"
+  >
+    <nz-icon nzType="home" nzTheme="outline"></nz-icon>
+    <span>Home</span>
+  </li>
+
+  <li
+    nz-menu-item
+    nz-tooltip
+    nzTooltipPlacement="right"
+    [nzTooltipTitle]="isCollapsed ? 'Archivos Compartidos' : ''"
+    [routerLink]="['/home/compartido']"
+
+  >
+  <nz-icon nzType="folder-open" nzTheme="outline" />
+    <span>Archivo Compartidos</span>
+  </li>
+  
+  <li
+    nz-menu-item
+    nz-tooltip
+    nzTooltipPlacement="right"
+    [nzTooltipTitle]="isCollapsed ? 'Almacenamiento' : ''"
+  >
+    <nz-icon nzType="cloud" nzTheme="outline"></nz-icon>
+    <span>Almacenamiento</span>
+  </li>
+</ul>

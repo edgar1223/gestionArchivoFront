@@ -1,28 +1,126 @@
-/* user-form.component.css */
+/* Contenedor general del formulario */
 .user-form {
-    margin: 0 auto;
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 30px;
+  background: linear-gradient(145deg, #f0f5ff, #ffffff);
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1), 0 2px 6px rgba(0, 0, 0, 0.06);
+  font-family: 'Poppins', sans-serif;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Efecto de luz en el fondo */
+.user-form::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(24, 144, 255, 0.1), transparent);
+  transform: rotate(30deg);
+  animation: lightAnimation 6s linear infinite;
+  z-index: 0;
+}
+
+@keyframes lightAnimation {
+  0% {
+    transform: rotate(30deg);
+  }
+  100% {
+    transform: rotate(390deg);
+  }
+}
+
+/* Capas del contenido */
+.user-form h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-align: center;
+  color: #1890ff;
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Títulos y etiquetas */
+nz-form-label {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #595959;
+  margin-bottom: 8px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Campos de entrada */
+nz-form-control input[nz-input] {
+  height: 48px;
+  font-size: 1rem;
+  border-radius: 12px;
+  border: 1px solid #d9d9d9;
+  padding: 0 16px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  z-index: 1;
+}
+
+/* Estilo de foco en los inputs */
+nz-form-control input[nz-input]:focus {
+  border-color: #40a9ff;
+  box-shadow: 0 0 10px rgba(64, 169, 255, 0.3);
+}
+
+/* Separación entre los ítems del formulario */
+nz-form-item {
+  margin-bottom: 24px;
+}
+
+/* Botón principal */
+button[nz-button] {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(145deg, #1890ff, #40a9ff);
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: 600;
+  height: 50px;
+  padding: 0 20px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease, transform 0.2s ease;
+  z-index: 1;
+}
+
+/* Hover en el botón */
+button[nz-button]:hover {
+  background: linear-gradient(145deg, #40a9ff, #1890ff);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* Estado activo del botón */
+button[nz-button]:active {
+  transform: translateY(1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+  .user-form {
     padding: 20px;
-    border-radius: 10px;
   }
-  
-  button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  /* Añadir separación entre las etiquetas y los campos de entrada */
+
   nz-form-label {
-    margin-bottom: 8px; /* Añade espacio debajo de la etiqueta */
+    font-size: 0.9rem;
   }
-  
-  /* Añadir margen entre el input y la etiqueta */
-  nz-form-control {
-    margin-bottom: 16px; /* Espacio entre los controles de formulario */
+
+  button[nz-button] {
+    font-size: 1rem;
+    height: 45px;
   }
-  
-  /* Opcional: para hacer que los inputs tengan un poco más de espacio entre ellos */
-  nz-form-item {
-    margin-bottom: 20px; /* Añadir espacio entre los ítems de formulario */
-  }
-  
+}
